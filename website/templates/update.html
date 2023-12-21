@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+{% extends 'crud.html' %}
+{% block content %}
+{% load static %}
+<html lang="en">
+<style>
+    .update{
+    font-family:verdana;
+    font-size:35px;
+    text-align:center;
+    background-color:gray:}
+    h1{
+    display:inlineblock;
+    text-align:center;
+    margin-top:50px;
+    background-color:gray;
+    font-size:50px;
+    }
+    input{padding:5px;}
+    input:hover{background-color:black;
+    color:tomato;}
+</style>
+<head>
+    <meta charset="UTF-8">
+    <title>$Title$</title>
+</head>
+<body>
+<h1>Update</h1>
+<div class="update">
+    <form action="/update/{{ data.pk }}" method="POST">
+     {% csrf_token %}
+              <pre>
+     ID     <input type="text" value="{{ data.id }}" name="id">
+     Name   <input type="text" value="{{ data.name}}" name="name">
+     Contact <input type="text" value="{{ data.contact}}" name="contact">
+     Email   <input type="text" value="{{ data.email}}" name="email">
+     Subject <input type="text" value="{{ data.subject}}" name="subject">
+     Message <input type="text" value="{{ data.message}}" name="message">
+     Status  <input type="text" value="{{ data.status}}" name="status">
+     Comment <input type="text" value="{{ data.comment}}" name="comment">
+            <input type="submit" value="Update">
+              </pre>
+    </form>
+</div>
+</body>
+{% endblock %}
+</html>

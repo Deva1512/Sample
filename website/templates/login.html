@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+{% extends 'navbar.html' %}
+{% block content %}
+<style>
+    h1{display:inlineblock;
+    text-align:center;
+    margin-top:50px;
+    background-color:gray;
+    font-size:50px;}
+     pre{font-size:40px;
+     text-align:center;
+     margin-top:40px;}
+    input{padding:7px;
+    }
+    input:hover{background-color:black;
+    color:tomato;}
+</style>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>Login</h1>
+    <form method="POST">
+        {% csrf_token %}
+        <pre>
+    Username <input type="text" name="username"><br>
+    Password <input type="text" name="password">
+    <input type="submit" value="Login">
+        </pre>
+        {% if messages %}
+    <ul class="messages" style="text-align:center; background: yellow ;font-size: 20px; font-family: Comic sans MS">
+        {% for message in messages %}
+        <div
+                {% if message.tags %} class="{{ message.tags }}" {% endif %}>
+            {% if message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}Important: {% endif %}
+            {{ message }}
+        </div>
+        {% endfor %}
+    </ul>
+    {% endif %}
+    </form>
+</body>
+{% endblock %}
+</html>

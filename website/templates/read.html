@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+{% extends 'crud.html' %}
+{% block content %}
+<html lang="en">
+<style>
+    th,td{
+    border-style:inset;
+     border-color: #96D4D4;
+      padding-top: 10px;
+     padding-bottom: 20px;
+  padding-left: 30px;
+  padding-right: 40px;
+  text-align:left;
+  font-size:15px
+    }
+  caption{ background-color:gray;}
+
+
+</style>
+<head>
+    <meta charset="UTF-8">
+    <title>$Title$</title>
+</head>
+<body>
+<table style="width:80%">
+    <caption style="font-size:30px">Data Hub</caption>
+    <tr>
+        <th style="width:8%">ID</th>
+        <th style="width:15%">Name</th>
+        <th style="width:15%">Email</th>
+        <th style="width:15%">Contact</th>
+        <th style="width:15%">subject</th>
+        <th style="width:15%">Message</th>
+        <th style="width:15%">status</th>
+        <th style="width:15%">comment</th>
+        <th>Action</th>
+        <th>Action</th>
+    </tr>
+    {% for i in data %}
+    <tr>
+        <td>{{ i.id }}</td>
+        <td>{{ i.name }}</td>
+        <td>{{ i.email }}</td>
+        <td>{{ i.contact }}</td>
+        <td>{{ i.subject }}</td>
+        <td>{{ i.message}}</td>
+        <td>{{ i.status}}</td>
+        <td>{{ i.comment}}</td>
+        <td><a href="/update/{{ i.pk }}">Update</a></td>
+        <td><a href="/delete/{{ i.pk }}">Delete</a></td>
+    </tr>
+    {% endfor %}
+
+</table>
+</body>
+
+{% endblock %}
+</html>

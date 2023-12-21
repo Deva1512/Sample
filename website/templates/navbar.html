@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+{% load static %}
+<style>
+    *{
+    margin:0;
+    padding:0;}
+
+    ul{
+    overflow:hidden:}
+
+    li,ul,admin,login{
+       display:inline;}
+
+        .one{
+        background-color:rgb(0, 221, 0);
+        padding:20px;
+        }
+
+       li a{
+       margin-right:40px;
+       font-size:35px;
+       color:white;
+       text-decoration:none;}
+
+       li a:hover{
+       background-color:red;
+       color:white;
+       }
+
+    .button {
+    background-color:white;
+    text-decoration:none;
+    color:black;
+    font-size:20px;
+    float:right;
+    padding:10px;
+    }
+
+    li a, .dropbtn {
+    display:inline-block;
+    color:white;
+    text-align:center;}
+
+    li a:hover, .dropdown:hover .dropbtn{
+    background-color:red;}
+
+    li.dropdown{
+    display: inline-block;}
+
+    .dropdown-content{
+    display: none;
+    position: absolute;
+    background-color; black;
+    min-width:10px;
+    }
+
+    .dropdown-content a{
+    background-color:black;
+    color:white;
+    display:block:}
+
+    .dropdown-content a:hover{
+    background-color:red;}
+
+    .dropdown:hover .dropdown-content{
+    display:block;}
+
+    .img{margin-right:30px;}
+
+</style>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+
+<div class="one">
+    <ul>
+        <li><a href="/"><img class="img" src="{% static 'images/logo5.png'%}" alt="1" width="150px" height="100px"> </a></li>
+        <li><a href="/about_us">About Us</a></li>
+        <li><a href="/contact_us">Contact Us</a></li>
+        <li><a href="/login" class="button">Login</a></li>
+        <li><a href="/donate" class="button">Donate</a></li>
+        <li><a href="/admin" class="button">Admin</a></li>
+        <li class="dropdown">
+            <a href="javascript:void(0)" class="dropbtn">Our works</a>
+            <div class="dropdown-content">
+                <a href="/our_vision">Our Vision on Education</a><br>
+                <a href="/rights">Rights of Education</a><br>
+                <a href="/team">Education for All</a><br>
+            </div>
+        </li>
+    </ul>
+</div>
+
+{% block content %}
+{% endblock %}
+</html>
